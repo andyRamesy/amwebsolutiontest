@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #ffffff;
+  color: #000;
+  @apply xs:justify-center;
+}
+
+.combobox-input {
+  /* width: 100%; */
+  padding: 0.5rem;
+  font: inherit;
+  letter-spacing: inherit;
+  color: currentColor;
+  padding: 4px 0 5px;
+  border: 1px solid #c4c4c4;
+  border-radius: 8px;
+  box-sizing: content-box;
+  background: none;
+  height: 1.4375em;
+  margin: 0;
+  -webkit-tap-highlight-color: transparent;
+  display: block;
+  min-width: 0;
+  -webkit-animation-name: mui-auto-fill-cancel;
+  animation-name: mui-auto-fill-cancel;
+  -webkit-animation-duration: 10ms;
+  animation-duration: 10ms;
+  padding: 16.5px 14px;
+  outline: none;
+}
+
+.combobox-input:focus {
+  border: 2px solid #0063cc;
+}
+
+.combobox-input:hover {
+  border:1px solid #000;
+}
+
+
+
+
+#map {
+  width: 100%;
+  height: 50vh;
+}
+
+
+.marker {
+  padding: 0.5rem;
+  background: white;
+  transition: all 0.3s ease-out;
+  position: relative;
+  width: 100px;
+  border-radius: 5px;
+}
+
+.marker:after {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  font-size: 0.75rem;
+  opacity: 1;
+}
+
+
+.marker h2 {
+  margin: 0;
+}
+.marker p {
+  margin: 0;
+}
+
+@media (max-width: 639px) {
+  .extra-small-card {
+      @apply flex-col;
+    /* Add any other styles specific to extra-small screens */
+  }
+}
+
+
+
