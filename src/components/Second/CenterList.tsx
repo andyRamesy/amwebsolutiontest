@@ -4,8 +4,10 @@ import Typography from "@mui/material/Typography";
 import { Button } from "@mui/material";
 import { centerList } from "../../data/centerList";
 import { calculateDistance } from "../../utils/calcuateDistance";
-import { IUser } from "../../type/type";
+import { ICenter, IUser } from "../../type/type";
 import { useSelector } from "react-redux";
+import { connect } from "react-redux";
+import { getActions } from "../../store/actions/mapActions";
 
 const Card = styled("div")({
   backgroundColor: "#f5f5f5",
@@ -33,7 +35,7 @@ const CategoryWrapper = styled("div")({
   gap: "10px",
 });
 
-const CenterList = () => {
+const CenterList = ({updateMapView}:any) => {
   const [distances, setDistances] = useState<number[]>([]); //state for the distance value
   const userDetails = useSelector(
     (state: IUser) => state.userReducer.userDetails
@@ -61,6 +63,13 @@ const CenterList = () => {
     }
   }, [userDetails]);
 
+
+  const setMapView = (center:ICenter) => {
+    console.log("center clicked:", center);
+    updateMapView(center)
+    return null;
+  }
+
   return (
     <Wrapper>
       {centerList.map((center, index) => (
@@ -69,7 +78,7 @@ const CenterList = () => {
             <Typography sx={{ marginBottom: "10px" }} variant="h4">
               {center.name}
             </Typography>
-            <Button className="h-fit w-fit " variant="outlined">
+            <Button key={index} onClick={() => setMapView(center)}  className="h-fit w-fit " variant="outlined">
               Voir sur la carte
             </Button>
           </div>
@@ -90,4 +99,10 @@ const CenterList = () => {
   );
 };
 
-export default CenterList;
+const mapActionsToProps = (dispatch: any) => {
+  return {
+    ...getActions(dispatch),
+  };
+};
+
+export default connect(null, mapActionsToProps)(CenterList) ;

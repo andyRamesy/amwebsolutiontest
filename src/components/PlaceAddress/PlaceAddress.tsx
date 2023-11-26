@@ -3,6 +3,7 @@ import { useLoadScript } from "@react-google-maps/api";
 import usePlacesAutocomplete, {
   getGeocode,
   getLatLng,
+  getZipCode,
 } from "use-places-autocomplete";
 import {
   Combobox,
@@ -50,10 +51,9 @@ const PlacesAutocomplete = ({ setSelected }: any) => {
   // Handle address selection
   const handleSelect = async (address: any) => {
     setValue(address);
-    console.log("results:", data);
     clearSuggestions();
-    // Get geocode and LatLng from the selected address
-    const results = await getGeocode({ address });
+
+    const results = await getGeocode({ address }); // Get geocode and LatLng from the selected address
     const { lat, lng } = await getLatLng(results[0]);
 
     setSelected({ lat, lng, results });

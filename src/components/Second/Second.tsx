@@ -4,10 +4,10 @@ import Map from "../Map/Map";
 
 const Second = () => {
   return (
-    <>
-      <CenterList />;
+    <div className="flex flex-col gap-[5px]">
+      <CenterList />
       <Map />
-    </>
+    </div>
   );
 };
 
