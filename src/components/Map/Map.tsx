@@ -11,7 +11,7 @@ function Map() {
     <Wrapper
       version="beta"
       libraries={["marker"]}
-      apiKey="AIzaSyC7F94QX9enf8Ry_M0vEiCjzTNA9efTVec"
+      apiKey="process.env.GOOGLE_API_KEY"
     >
       <MyMapComponent />
     </Wrapper>
